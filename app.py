@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 #connecting to the database
 client = pymongo.MongoClient('localhost', 27017)
-#client = pymongo.MongoClient('mongodb+srv://root:Shaytards123@cluster0.szmco.mongodb.net/Software_Project?retryWrites=true&w=majority')
+#client = pymongo.MongoClient('mongodb+srv://root:PASSWORD@cluster0.szmco.mongodb.net/Software_Project?retryWrites=true&w=majority')
 db = client.login_system
 
 

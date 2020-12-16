@@ -1,2 +1,57 @@
 {% extends "base.html"%}
-{% block content %} <h1>This be where you find the forum </h1> {% endblock%}
+{% block content %}
+
+<div class="Reviewer">
+
+    <div class "card">
+    <h1 class="center">Add to the forum</h1>
+
+    <form name="review_form">
+
+        <label for="username">Name</label>
+        <input type="text" name="brand" class="field" required>
+
+        <label for="post">Post</label>
+        <input type="text" name="sneakerName" class="field" >
+
+        
+
+       
+
+
+        <p class="error error--hidden"></p>
+
+        <input type="submit" value="Submit" style ="background-color:red" class='btn'>
+
+
+    </form>
+
+    <ul>
+        <li><b>Name: </b> Johnny</li>
+        
+        <li><b>Post: </b>What did the sneaker say when it sneezed? A shoe!</li>
+    
+    
+    </ul>
+    
+
+    
+    <ul>  
+        <li><b>Name: </b> Sam</li>
+        <li><b>Post: </b> Yeezy just released the new Yeezy Boost 250's, check the out! <a>https://www.adidas.ie/yeezy></a> </li>
+        
+    </ul>
+
+    <ul>  
+        <li><b>Name: </b> Ciara</li>
+        <li><b>Post: </b> Anyone know the name of these shows, I have been searching for them for ages! <img scr="" alt="shoess"> </li>
+        
+    </ul>
+    
+
+
+
+
+
+{% endblock%}
+

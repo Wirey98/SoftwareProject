@@ -3,10 +3,11 @@ from passlib.hash import pbkdf2_sha256
 from app import db
 
 import uuid
+
 class User:
 
-    def singup(self):
-        print(request.form)
+    def signup(self):
+        
 
         # creating the user object
         user = {

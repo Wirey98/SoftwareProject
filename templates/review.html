@@ -1,0 +1,78 @@
+{% extends "base.html"%}
+{% block content %}
+
+<div class="Reviewer">
+
+    <div class "card">
+    <h1 class="center">Write a Review</h1>
+
+    <form name="review_form">
+
+        <label for="brand">Brand</label>
+        <input type="text" name="brand" class="field" required>
+
+        <label for="email">Sneaker Name</label>
+        <input type="text" name="sneakerName" class="field" required>
+
+        <label for="password">Colour</label>
+        <input type="text" name="colour" class="field" required>
+
+        <label for="password">Gender</label>
+        <input type="text" name="gender" class="field" required>
+
+        <label for="password">Type</label>
+        <input type="text" name="type" class="field" required>
+
+        <label for="password">Review</label>
+        <input type="text" name="review" maxlength="300"  class="field" required>
+
+        <p class="error error--hidden"></p>
+
+        <input type="submit" value="Submit" style ="background-color:red" class='btn'>
+
+
+    </form>
+
+
+
+
+
+
+<ul>
+    <li><b>Brand:</b> Nike</li>
+    <li><b>Sneaker Name:</b> Air Max</li>
+    <li><b>Colour:</b> Grey</li>
+    <li><b>Gender:</b> Mens</li>
+    <li><b>Type:</b> Runner</li>
+    <li><b>Review</b>This is an amazing pair. Air Max's go well with every type of outfit. In my opinion white is the best colout to go for. They're a 10/10 in my books!!</li>
+
+
+</ul>
+
+
+
+<ul>  
+    <li><b>Brand:</b> Adidas</li>
+    <li><b>Sneaker Name:</b> Ultraboost</li>
+    <li><b>Colour:</b> White</li>
+    <li><b>Gender:</b> Unisex</li>
+    <li><b>Type:</b> High-Top</li>
+    <li><b>Review</b>This is an amazing shoes. Great everday pair due to the comfortability. I wear these for running and I see no wear and tear. Ultraboosts will last you for years. The wide range of colours are great, althoug I am reviwing the grey pair, the black ones are also lovely!</li>
+
+
+</ul>
+<ul>
+    <li><b>Brand:</b> Converse</li>
+    <li><b>Sneaker Name:</b> Net Star</li>
+    <li><b>Colour:</b> Black and White</li>
+    <li><b>Gender:</b> Unisex</li>
+    <li><b>Type:</b> low-Top</li>
+    <li><b>Review</b>DO NOT BUY THESE! These shows are extremely uncomfotable and take ages to break in. Only bnefit is the low price. However I find it hard to pair them with any of my outfits.</li>
+
+
+</ul>
+
+
+
+
+{% endblock%}

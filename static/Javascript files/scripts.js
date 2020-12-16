@@ -18,7 +18,7 @@ $("form[name=signup_form").submit(function(event){
         error: function (resp){
             console.log(resp);
         }
-    })
+    });
 
     event.preventDefault();
-})
+});

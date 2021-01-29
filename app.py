@@ -1,20 +1,28 @@
 from flask import Flask, render_template
+
 import pymongo
 from pymongo import MongoClient
 
 app = Flask(__name__)
 
-
-
 #connecting to the database
-client = pymongo.MongoClient('localhost', 27017)
-#client = pymongo.MongoClient('mongodb+srv://root:PASSWORD@cluster0.szmco.mongodb.net/Software_Project?retryWrites=true&w=majority')
-db = client.login_system
+cluster = MongoClient('mongodb+srv://root:Shaytards123@cluster0.szmco.mongodb.net/Software_Project?retryWrites=true&w=majority')
+
+
+database1 = cluster["Software_Project"]
+collection = database1["users"]
+
+#collection.insert_one({"id":0, "seed_name":"onions"})
+
+#client = pymongo.MongoClient('mongodb+srv://root:Shaytards123@cluster0.szmco.mongodb.net/Software_Project?retryWrites=true&w=majority')
+#databasefirst = client.login_system
+
+#app.config['databaseURI'] = 'mongodb+srv://root:Shaytards123@cluster0.szmco.mongodb.net/Software_Project?retryWrites=true&w=majority'
+#app.config[]
 
 
 # user routes
 from user import routes
-
 
 
 @app.route("/")

@@ -1,4 +1,4 @@
-//https://www.youtube.com/watch?v=mISFEwojJmE - adding functionality to a form
+//https://www.youtube.com/watch?v=mISFEwojJmE - adding functionality to a form using AJAX
 
 $("form[name=signup_form").submit(function(event){
 
@@ -17,6 +17,7 @@ $("form[name=signup_form").submit(function(event){
         },
         error: function (resp){
             console.log(resp);
+            $error.text(resp.responseJSON.error).removeClass("error--hidden");
         }
     });
 

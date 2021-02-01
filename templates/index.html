@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block title %} Home Page {% endblock %}
 {% block content %} 
-    <!--https://www.youtube.com/watch?v=mISFEwojJmE-->
+    <!--https://www.youtube.com/watch?v=mISFEwojJmE  REMEMBER TO REMOVE NAV BAR WHEN LOGIN COMPLETED-->
 
     
-    <div class="card-wrapper">
+    <div class="card-wrapper" >
 
-        <div class "card">
-        <h1 class="center">Create an Account</h1>
+        <div class "card" style="Padding-right:50px;" >
+            <h1 class="center"><strong>Create an Account</strong></h1>
 
         <form name="signup_form">
 
@@ -26,8 +26,27 @@
 
 
         </form>
+        </div>
 
-
+        <div class "card" style= "Padding-left:50px;"  >
+            <h1 class="center"> <strong>Log In</strong></h1>
+    
+            <form name="login_form">
+    
+                <label for="email">Email</label>
+                <input type="email" name="email" class="field" required>
+    
+                <label for="password">Password</label>
+                <input type="password" name="password" class="field" required>
+    
+                <p class="error error--hidden"></p>
+    
+                <input type="submit" value="Log In" style ="background-color:red" class='btn'>
+    
+    
+            </form>
+    
+    
         </div>
     </div>
 {% endblock %}

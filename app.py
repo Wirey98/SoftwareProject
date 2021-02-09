@@ -1,6 +1,8 @@
-from flask import Flask, render_template, session, redirect
+from flask import Flask, render_template, session, redirect, request
 from functools import wraps
 import pymongo
+import folium
+import requests
 from pymongo import MongoClient
 
 app = Flask(__name__)
@@ -60,6 +62,42 @@ def forum():
 @login_manditory
 def homepage():
     return render_template("homepage.html")
+
+@app.route("/homescreen")
+@login_manditory
+def homescreen():
+    return render_template("homescreen.html")
+
+#@app.route("/APIsearch")
+#@login_manditory
+#def shoesearch():
+ #   return render_template("shoesearch.html")
+
+#@app.route("/apiresult", methods=["POST"])
+#@login_manditory
+#def apiresult():
+    #getting the form value
+    #shoes = request.form['shoe']
+ #   r = requests.get('')
+  #  json_object = r.text
+   # return json_object
+    #return render_template("apiresult.html")
+
+
+@app.route("/maptest")
+@login_manditory
+def map():
+    map = folium.Map(
+        location=[53.3379897, -6.259073],
+        tiles='Stamen Terrain',
+        zoom_start=17
+    )
+
+    folium.Circle([53.3379897, -6.259073],
+    radius=200).add_to(map)
+
+    return map._repr_html_()
+
 
 if __name__ == "__main__":
     app.debug = True

@@ -1,122 +1,330 @@
 {% extends "base.html"%}
 {% block content %} 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!--  Shoe preview template https://www.w3schools.com/css/css_image_gallery.asp  -->
 <html>
 <head>
+  <!-- https://codepen.io/RoyLee0702/pen/RwNgVya - for the present animation 03/02/2021 -->
 <style>
 
-
-
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
-}
-
-div.gallery:hover {
-  border: 1px solid #777;
-}
-
-div.gallery img {
-  width: 100%;
-  height: auto;
-}
-
-div.desc {
-  padding: 15px;
+div.seeker{
   text-align: center;
+
 }
+
+
+
+
+
+
+
+.box {
+  position: relative;
+
+}
+.box::before {
+  content: "";
+  width: 440px;
+  height: 440px;
+  background-color: #89cff0;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.box-body {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  margin-top: 123.3333333333px;
+  background-color: #cc231e;
+  border-bottom-left-radius: 5%;
+  border-bottom-right-radius: 5%;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(#762c2c,#ff0303);
+}
+.box-body .img{
+  opacity: 0;
+  transform: translateY(0%);
+  transition: all 0.5s;
+  margin: 0 auto;
+  display: block;
+}
+.box-body:hover {
+  cursor: pointer;
+  -webkit-animation: box-body 1s forwards ease-in-out;
+          animation: box-body 1s forwards ease-in-out;
+}
+.box-body:hover .img{
+  opacity: 1;
+  z-index: 0;
+  transform: translateY(-157px);
+
+
+   
+}
+.box-body:hover .box-lid {
+  -webkit-animation: box-lid 1s forwards ease-in-out;
+          animation: box-lid 1s forwards ease-in-out;
+}
+.box-body:hover .box-bowtie::before {
+  -webkit-animation: box-bowtie-left 1.1s forwards ease-in-out;
+          animation: box-bowtie-left 1.1s forwards ease-in-out;
+}
+.box-body:hover .box-bowtie::after {
+  -webkit-animation: box-bowtie-right 1.1s forwards ease-in-out;
+          animation: box-bowtie-right 1.1s forwards ease-in-out;
+}
+.box-body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 50px;
+  background: linear-gradient(#ffffff,#ffefa0)
+}
+.box-lid {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 90%;
+  height: 40px;
+  background-color: #cc231e;
+  height: 40px;
+  width: 220px;
+  border-radius: 5%;
+  box-shadow: 0 8px 4px -4px rgba(0, 0, 0, 0.3);
+}
+.box-lid::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 50px;
+  background: linear-gradient(#ffefa0,#fff)
+}
+.box-bowtie {
+  z-index: 1;
+  height: 100%;
+}
+.box-bowtie::before, .box-bowtie::after {
+  content: "";
+  width: 83.3333333333px;
+  height: 83.3333333333px;
+  border: 16.6666666667px solid white;
+  border-radius: 50% 50% 0 50%;
+  position: absolute;
+  bottom: 99%;
+  z-index: -1;
+}
+.box-bowtie::before {
+  left: 50%;
+  -webkit-transform: translateX(-100%) skew(10deg, 10deg);
+          transform: translateX(-100%) skew(10deg, 10deg);
+}
+.box-bowtie::after {
+  left: 50%;
+  -webkit-transform: translateX(0%) rotate(90deg) skew(10deg, 10deg);
+          transform: translateX(0%) rotate(90deg) skew(10deg, 10deg);
+}
+
+@-webkit-keyframes box-lid {
+  0%,
+  42% {
+    -webkit-transform: translate3d(-50%, 0%, 0) rotate(0deg);
+            transform: translate3d(-50%, 0%, 0) rotate(0deg);
+  }
+  60% {
+    -webkit-transform: translate3d(-85%, -230%, 0) rotate(-25deg);
+            transform: translate3d(-85%, -230%, 0) rotate(-25deg);
+  }
+  90%, 100% {
+    -webkit-transform: translate3d(-119%, 225%, 0) rotate(-70deg);
+            transform: translate3d(-119%, 225%, 0) rotate(-70deg);
+  }
+}
+
+@keyframes box-lid {
+  0%,
+  42% {
+    -webkit-transform: translate3d(-50%, 0%, 0) rotate(0deg);
+            transform: translate3d(-50%, 0%, 0) rotate(0deg);
+  }
+  60% {
+    -webkit-transform: translate3d(-85%, -230%, 0) rotate(-25deg);
+            transform: translate3d(-85%, -230%, 0) rotate(-25deg);
+  }
+  90%, 100% {
+    -webkit-transform: translate3d(-119%, 225%, 0) rotate(-70deg);
+            transform: translate3d(-119%, 225%, 0) rotate(-70deg);
+  }
+}
+@-webkit-keyframes box-body {
+  0% {
+    -webkit-transform: translate3d(0%, 0%, 0) rotate(0deg);
+            transform: translate3d(0%, 0%, 0) rotate(0deg);
+  }
+  25% {
+    -webkit-transform: translate3d(0%, 25%, 0) rotate(20deg);
+            transform: translate3d(0%, 25%, 0) rotate(20deg);
+  }
+  50% {
+    -webkit-transform: translate3d(0%, -15%, 0) rotate(0deg);
+            transform: translate3d(0%, -15%, 0) rotate(0deg);
+  }
+  70% {
+    -webkit-transform: translate3d(0%, 0%, 0) rotate(0deg);
+            transform: translate3d(0%, 0%, 0) rotate(0deg);
+  }
+}
+@keyframes box-body {
+  0% {
+    -webkit-transform: translate3d(0%, 0%, 0) rotate(0deg);
+            transform: translate3d(0%, 0%, 0) rotate(0deg);
+  }
+  25% {
+    -webkit-transform: translate3d(0%, 25%, 0) rotate(20deg);
+            transform: translate3d(0%, 25%, 0) rotate(20deg);
+  }
+  50% {
+    -webkit-transform: translate3d(0%, -15%, 0) rotate(0deg);
+            transform: translate3d(0%, -15%, 0) rotate(0deg);
+  }
+  70% {
+    -webkit-transform: translate3d(0%, 0%, 0) rotate(0deg);
+            transform: translate3d(0%, 0%, 0) rotate(0deg);
+  }
+}
+@-webkit-keyframes box-bowtie-right {
+  0%,
+  50%,
+  75% {
+    -webkit-transform: translateX(0%) rotate(90deg) skew(10deg, 10deg);
+            transform: translateX(0%) rotate(90deg) skew(10deg, 10deg);
+  }
+  90%,
+  100% {
+    -webkit-transform: translate(-50%, -15%) rotate(45deg) skew(10deg, 10deg);
+            transform: translate(-50%, -15%) rotate(45deg) skew(10deg, 10deg);
+    box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 0.3);
+  }
+}
+@keyframes box-bowtie-right {
+  0%,
+  50%,
+  75% {
+    -webkit-transform: translateX(0%) rotate(90deg) skew(10deg, 10deg);
+            transform: translateX(0%) rotate(90deg) skew(10deg, 10deg);
+  }
+  90%,
+  100% {
+    -webkit-transform: translate(-50%, -15%) rotate(45deg) skew(10deg, 10deg);
+            transform: translate(-50%, -15%) rotate(45deg) skew(10deg, 10deg);
+    box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 0.3);
+  }
+}
+@-webkit-keyframes box-bowtie-left {
+  0% {
+    -webkit-transform: translateX(-100%) rotate(0deg) skew(10deg, 10deg);
+            transform: translateX(-100%) rotate(0deg) skew(10deg, 10deg);
+  }
+  50%,
+  75% {
+    -webkit-transform: translate(-50%, -15%) rotate(45deg) skew(10deg, 10deg);
+            transform: translate(-50%, -15%) rotate(45deg) skew(10deg, 10deg);
+  }
+  90%,
+  100% {
+    -webkit-transform: translateX(-100%) rotate(0deg) skew(10deg, 10deg);
+            transform: translateX(-100%) rotate(0deg) skew(10deg, 10deg);
+  }
+}
+@keyframes box-bowtie-left {
+  0% {
+    -webkit-transform: translateX(-100%) rotate(0deg) skew(10deg, 10deg);
+            transform: translateX(-100%) rotate(0deg) skew(10deg, 10deg);
+  }
+  50%,
+  75% {
+    -webkit-transform: translate(-50%, -15%) rotate(45deg) skew(10deg, 10deg);
+            transform: translate(-50%, -15%) rotate(45deg) skew(10deg, 10deg);
+  }
+  90%,
+  100% {
+    -webkit-transform: translateX(-100%) rotate(0deg) skew(10deg, 10deg);
+            transform: translateX(-100%) rotate(0deg) skew(10deg, 10deg);
+  }
+}
+
 
 </style>
 </head>
 <body>
 
-  <div class="card-wrapper">
-
-    <div class "card">
-
-    
-    <h1 class="center">Seek your sole</h1>
-    
-    <form class ="center" name="signup_form">
-  
-        <label for="brand">Brand</label>
-        <input type="text" name="brand" class="field" required >
 
 
-        <label for="mColour">Main Colour</label>
-        <input type="text" name="mcolour" class="field" required>
-  
-        <label for="sColour">Secondary Colour <i>- if applicable</i></label>
-        <input type="text" name="scolour" class="field" required>
+<div class = "seeker">
 
-        <label for="sneakertype">Sneaker type</label>
-        <select id="sneakertype" name="sneakertype" required>
-          <option value="LowTop">Low Top</option>
-          <option value="HighTop">High Top</option>
-          </select><br><br>
+<h1><strong><u>Sole Seeker Week 1 (5th - 11th July 2021)</u></strong></h1>
 
-        <label for="gender">Gender</label>
-        <select id="gender" name="gender" required>
-          <option value="mens">Mens</option>
-          <option value="womens">Womens</option>
-          <option value="unisex">Unisex</option>
-          </select>
-  
-        <p class="error error--hidden"></p>
-  
-        <input type="submit" value="Submit" style ="background-color:red" class='btn'>
-  
-  
-    </form>
+<h2><strong></strong>How it works?</strong></h2>
+
+<p>
+Step 1: Hover over the present to reveal this week's prize!
+</br>
+Step 2: Press the 'CLICK ME!' button to reveal the location of the prize.
+</br>
+Step 3: Go hunting! (The prize can be located anywhere within that region. Look under benches, over the trees or even in a rabbit hole)
+</br> 
+Step 4: (Only if you're the special one) Let us know on social media if you're the lucky winner! We'd love to see that smiling face &#128512;.
+</br> </br> 
+Please note, the prize will be wraped in a red and gold box, just like the picture you see below
+</br>
+</p>
+
+
+
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5 d-flex justify-content-center">
+      <div class="box">
+        <div class="box-body">
+          <img class="img" src="https://cdn.discordapp.com/attachments/631534372574593034/807318271496945724/shoesbttf.png">
+          <div class="box-lid">
+            
+            <div class="box-bowtie"></div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="gallery">
-  <a target="_blank" href="https://www.pikpng.com/pngl/m/272-2720813_transparent-nike-air-max-transparent-background-nike-air.png">
-    <img src="https://www.pikpng.com/pngl/m/272-2720813_transparent-nike-air-max-transparent-background-nike-air.png" alt="Cinque Terre" width="600" height="400">
-  </a>
-  <div class="desc">Nike</div>
-</div>
 
-<div class="gallery">
-  <a target="_blank" href="https://p1.hiclipart.com/preview/854/923/720/s-converse-all-star-unpaired-of-converse-all-star-high-top-sneaker-png-clipart.jpg">
-    <img src="https://p1.hiclipart.com/preview/854/923/720/s-converse-all-star-unpaired-of-converse-all-star-high-top-sneaker-png-clipart.jpg" alt="Forest" width="600" height="400">
-  </a>
-  <div class="desc">Converse</div>
-</div>
+</br>
+</br>
+</br>
+</br>
+<center><a href="maptest" class="btn" type="submit" >Click me!</a>
 
-<div class="gallery">
-  <a target="_blank" href="https://www.pngkey.com/png/full/125-1257203_checkered-vans-png-nz-justin-bieber-vans-shoes.png">
-    <img src="https://www.pngkey.com/png/full/125-1257203_checkered-vans-png-nz-justin-bieber-vans-shoes.png" alt="Northern Lights" width="600" height="400">
-  </a>
-  <div class="desc">Vans</div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="https://p.kindpng.com/picc/s/244-2441212_yeezy-frozen-yellow-stock-yeezy-350-v2-lineup.png">
-    <img src="https://p.kindpng.com/picc/s/244-2441212_yeezy-frozen-yellow-stock-yeezy-350-v2-lineup.png" alt="Mountains" width="600" height="400">
-  </a>
-  <div class="desc">Yeezy's</div>
-</div>
-
+<p>Special Shout Out to our Sponsor Nike for providing this weeks prize!</p>
+</center>
 
 </body>
 </html>
-
 
 {% endblock%}

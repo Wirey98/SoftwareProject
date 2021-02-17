@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %} 
 
-<h1>The shoe is {{ shoe }} </h1>
+<h1>Your shoe result:</h1>
+
+<h2>The shoe is {{ imageUrl }} </h2>
+<img src='{{imageUrl}}' alt="pic">
 
 {% endblock%}

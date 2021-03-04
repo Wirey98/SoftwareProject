@@ -4,11 +4,26 @@
 {% block content %} 
 <!--<input placeholder="Search"  aria-label="Search"> -->
                   <!--  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style ="background-color:red">Search</button> -->
+                  
 
-<form method="POST" action="/apiresult">
-    Enter a shoe brand: <input type="text" name="brand"> <br>
-    Enter your gender:  <input type="radio" name="gender" value="men">Male
-                        <input type="radio" name="gender" value="women">Female
+<div class='card-wrapper'>
+<div class="card">
+
+
+<form method="POST" action="/apiresult" class="center">
+    <h1>Enter a shoe brand:</h1> <input type="radio" name="brand" value="nike" required>Nike
+                                 <input type="radio" name="brand" value="Jordan" required>Jordan
+                                 <input type="radio" name="brand" value="vans" required>Vans
+                                 <input type="radio" name="brand" value="converse" required>Converse
+                                 <input type="radio" name="brand" value="adidas" required>Adidas
+                                 <input type="radio" name="brand" value="new balance" required>New Balance
+                                 <input type="radio" name="brand" value="Saucony" required>Saucony
+                        
+</br>
+
+    <h1>Enter your gender: </h1> <input type="radio" name="gender" value="men" required>Male
+                        <input type="radio" name="gender" value="women" required>Female <br>
+    
                         
     
     <input type="submit" value="Submit" style ="background-color:red" class='btn'>
@@ -16,60 +31,9 @@
 
 </form>
 
-<!-- result one -->
-<div class='card-wrapper'>
-    <div class="card">
-
-
-
-<h2 class="center"> {{ name }}</h2>
-<p class="center"> € {{ price }}</p>
-<img class="center" src='{{imageUrl}}' width='400' height='200'>
-
-    </div>
-
-
-
-<!-- result two -->
-<div class="card">
-
-<h2 class="center"> {{ name2 }}</h2>
-<p class="center"> € {{ price2 }}</p>
-<img class="center" src='{{imageUrl2}}' width='400' height='200'>
-
-</div>
-
-
-<!-- result three -->
-
-    <div class="card">
-
-<h2 class="center"> {{ name3 }}</h2>
-<p class="center"> € {{ price3 }}</p>
-<img class="center" src='{{imageUrl3}}' width='400' height='200'>
-
 </div>
 </div>
-<!-- result four -->
-<div class='card-wrapper'>
-<div class="card">
 
-
-<h2 class="center">{{ name4 }}</h2>
-<p class="center"> € {{ price4 }}</p>
-<img class="center" src='{{imageUrl4}}' width='400' height='200'>
-
-</div>
-
-
-<!-- result five -->
-
-<div class="card">
-<h2 class="center">{{ name5 }}</h2>
-<p class="center"> € {{ price5 }}</p>
-<img class="center" src='{{imageUrl5}}' width='400' height='200'>
-</div>
-</div>
 
 
 {% endblock%}

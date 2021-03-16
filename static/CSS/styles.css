@@ -18,7 +18,8 @@
   --secondary: #CFD8DC;
   --secondary-dark: #B0BEC5;
   --background-grey: #57545538;
-
+  --background-test: #080C0F;
+  --red: #FF0000;
 }
 
 * {
@@ -32,13 +33,14 @@ body {
   font-size: 18px;
   line-height: 28px;
   color: var(--black);
-  background: var(--grey);
+  background: var(--background-test);
 }
 
 /* Typography */
 .center {
   text-align: center;
 }
+
 
 h1 {
   margin: 0.5em 0 1em;
@@ -75,6 +77,19 @@ p {
   border-radius: 5px;
   background: var(--white);
 }
+
+.navbackground {
+  
+  background: var(red);
+}
+
+.whitefont {
+  
+  color: var(--white);
+}
+
+
+
 
 @media only screen and (max-width: 520px) {
   .card-wrapper {

@@ -46,3 +46,28 @@ $("form[name=login_form").submit(function(event){
 
     event.preventDefault();
 });
+
+
+// forum functionality
+$("form[name=forum_form").submit(function(event){
+
+    var $form = $(this);
+    var $error = $form.find(".error");
+    var data = $form.serialize();
+
+    $.ajax({
+        url: "/forum/post",
+        type: "POST",
+        data: data,
+        dataType: "json",
+        success: function(resp) {
+        window.location.href = "/forumResult";
+            
+        },
+        error: function (resp){
+            $error.text(resp.responseJSON.error).removeClass("error--hidden");
+        }
+    });
+
+    event.preventDefault();
+});

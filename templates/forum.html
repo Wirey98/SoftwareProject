@@ -6,16 +6,19 @@
     <div class="card">
     <h1 class="center">Add to the forum</h1>
 
-    <form name="review_form">
+    <form name="forum_form">
 
-        <label for="username">Name</label>
-        <input type="text" name="username" class="field" required>
+        <label for="forumName">Name</label>
+        <input type="text" name="forumName" class="field" required>
 
-        <label for="posttitle">Title</label>
-        <input type="text" name="posttitle" class="field" required>
+        <label for="forumTitle">Title</label>
+        <input type="text" name="forumTitle" class="field" maxlength="300" required>
 
-        <label for="post">Post</label>
-        <textarea rows="4" cols="40" name="post"></textarea>
+        <label for="forumPost">Post</label>
+        <textarea rows="4" cols="40" name="forumPost"  required></textarea>
+
+
+        
         
 
         
@@ -27,14 +30,19 @@
 
         <input type="submit" value="Submit" style ="background-color:red" class='btn'>
 
+        
+
 
     </form>
+
+    
+</div>
+    </div>
 </div>
 
 
+
     
-
-
 
 
 

@@ -5,6 +5,8 @@ import folium
 import requests
 import json
 from pymongo import MongoClient
+from pprint import pprint
+
 
 app = Flask(__name__)
 
@@ -16,6 +18,10 @@ cluster = MongoClient('mongodb+srv://root:Shaytards123@cluster0.szmco.mongodb.ne
 
 database1 = cluster["Software_Project"]
 collection = database1["users"]
+
+database2 = cluster["Software_Project"]
+collection1 = database2["forumCluster"]
+
 
 #collection.insert_one({"id":0, "seed_name":"onions"})
 
@@ -73,6 +79,11 @@ def homescreen():
 @login_manditory
 def shoesearch():
     return render_template("shoesearch.html")
+
+@app.route("/forumResult")
+@login_manditory
+def forumResult():
+    return render_template("forumResult.html")
 
    
 
@@ -217,6 +228,8 @@ def apiresult():
     imageUrl18=shoe_result18, name18=name_result18,color18=color_result18,
     imageUrl19=shoe_result19, name19=name_result19,color19=color_result19,
     imageUrl20=shoe_result20, name20=name_result20,color20=color_result20,)
+
+
 
 
 @app.route("/maptest")

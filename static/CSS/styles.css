@@ -88,7 +88,16 @@ p {
   color: var(--white);
 }
 
+.headerfont {
+  
+  font-family: copperplate;
+}
 
+.redfont {
+  
+  color: var(--red);
+  font-size: large;
+}
 
 
 @media only screen and (max-width: 520px) {

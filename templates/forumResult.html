@@ -1,0 +1,23 @@
+{% extends "base.html"%}
+
+{% block content %}
+<p>yo</p>
+
+
+    <div class='card-wrapper'>
+        <div class="card">
+    
+    <p >
+        <strong>ID:</strong> {{ session['forum']['_id']}}<br>
+        <strong>Name:</strong> {{ session['forum']['forumName']}}<br>
+        <strong>Title:</strong> {{ session['forum']['forumTitle']}}<br>
+        <strong>Post:</strong> {{ session['forum']['forumPost']}}<br>
+    </p>
+        </div>
+    </div>
+
+
+    
+
+
+{% endblock%}

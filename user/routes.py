@@ -5,6 +5,8 @@ from app import app
 
 from user.models import User
 
+from forum.forumModels import Forum
+
 @app.route('/user/signup', methods =['POST'])
 def signup():
     return User().signup()
@@ -16,3 +18,7 @@ def signout():
 @app.route('/user/login', methods =['POST'])
 def login():
     return User().login()
+
+@app.route('/forum/post', methods=['POST'])
+def posting():
+    return Forum().forumPost()

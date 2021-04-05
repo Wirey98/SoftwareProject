@@ -99,6 +99,14 @@ p {
   font-size: large;
 }
 
+.left {
+  float: left;
+  
+}
+.right {
+  float: right;
+  
+}
 
 @media only screen and (max-width: 520px) {
   .card-wrapper {
@@ -113,6 +121,16 @@ p {
     border-radius: 0;
   }
 }
+
+@media only screen and (max-width: 520px) {
+  .card2 {
+    margin: 0 0 30px;
+    width: 50%;
+    border-radius: 0;
+  }
+}
+
+
 
 /* Forms */
 form {

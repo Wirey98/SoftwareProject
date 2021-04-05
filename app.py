@@ -21,6 +21,7 @@ collection = database1["users"]
 
 database2 = cluster["Software_Project"]
 collection1 = database2["forumCluster"]
+collection2 = database2["forums"]
 
 
 #collection.insert_one({"id":0, "seed_name":"onions"})
@@ -30,6 +31,11 @@ collection1 = database2["forumCluster"]
 
 #app.config['databaseURI'] = 'mongodb+srv://root:Shaytards123@cluster0.szmco.mongodb.net/Software_Project?retryWrites=true&w=majority'
 #app.config[]
+
+
+
+
+
 
 # Decorators
 def login_manditory(f):
@@ -63,7 +69,7 @@ def blog():
 @app.route("/forum")
 @login_manditory
 def forum():
-    return render_template("forum.html")
+    return render_template("forum.html", collectiontest=collection2)
 
 @app.route("/homepage")
 @login_manditory
@@ -76,14 +82,20 @@ def homescreen():
     return render_template("homescreen.html")
 
 @app.route("/APIsearch")
-@login_manditory
+
 def shoesearch():
     return render_template("shoesearch.html")
 
 @app.route("/forumResult")
-@login_manditory
+
 def forumResult():
-    return render_template("forumResult.html")
+    return render_template('forumResult.html', collectiontest=collection2)
+    
+   # for x in collection1.find({}, {"_id":0, "forumName": 1, "forumTitle": 1, "forumPost": 1 }):
+      #  return render_template("forumResult.html",x)
+
+        
+    
 
    
 
@@ -230,7 +242,9 @@ def apiresult():
     imageUrl20=shoe_result20, name20=name_result20,color20=color_result20,)
 
 
+   
 
+    
 
 @app.route("/maptest")
 @login_manditory

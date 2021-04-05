@@ -7,17 +7,19 @@
     <div class='card-wrapper'>
         <div class="card">
     
-    <p >
-        <strong>ID:</strong> {{ session['forum']['_id']}}<br>
-        <strong>Name:</strong> {{ session['forum']['forumName']}}<br>
-        <strong>Title:</strong> {{ session['forum']['forumTitle']}}<br>
-        <strong>Post:</strong> {{ session['forum']['forumPost']}}<br>
-    </p>
+   
+          
+          {% for doc in collectiontest.find(): %}
+          
+
+
+           <p> {% print doc %} </p>
+
+          {% endfor %}
         </div>
     </div>
 
-
-    
+      <P>{{collectiontest.find()}}</P>
 
 
 {% endblock%}

@@ -42,6 +42,24 @@
 
 
 
+
+
+        
+{% for doc in collectiontest.find(): %}
+
+    <div class="card2">
+        <ul style="list-style-type:none">
+        <li>ID: {{ doc._id }}</li>
+        <li>Name: {{ doc.forumName }}</li>
+        <li>Title: {{ doc.forumTitle }}</li>
+        <li>Post: {{ doc.forumPost }}</li>
+        </ul>
+        
+        
+    </div>
+
+          {% endfor %}
+        
     
 
 

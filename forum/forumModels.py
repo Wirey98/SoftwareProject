@@ -3,9 +3,6 @@ import uuid
 from app import database2
 class Forum:
 
-    def session_init(self, forum):
-        session['forum'] = forum
-        return jsonify(forum), 200
 
     def forumPost(self):
         #creation of the forum post object
@@ -18,6 +15,6 @@ class Forum:
         }
 
         if database2.forums.insert_one(forum):
-            return self.session_init(forum)
+            return jsonify(forum), 200
 
-        return jsonify(forum), 200
+        return jsonify({"error": "failed"}), 400

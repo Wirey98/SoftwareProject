@@ -61,10 +61,10 @@ $("form[name=forum_form").submit(function(event){
         data: data,
         dataType: "json",
         success: function(resp) {
-        window.location.href = "/forumResult";
-            
+        console.log(resp);
         },
         error: function (resp){
+            console.log(resp);
             $error.text(resp.responseJSON.error).removeClass("error--hidden");
         }
     });

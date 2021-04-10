@@ -13,7 +13,6 @@ idna==2.10
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
-numpy==1.20.0
 passlib==1.7.4
 pymongo==3.11.2
 PythonDNS==0.1

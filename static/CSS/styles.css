@@ -41,6 +41,12 @@ body {
   text-align: center;
 }
 
+.center2 {
+  text-align: center;
+  margin-right: 40px !important;
+}
+
+
 
 h1 {
   margin: 0.5em 0 1em;

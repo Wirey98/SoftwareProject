@@ -1,6 +1,10 @@
 from flask import Flask, jsonify, request, session
+from datetime import datetime
 import uuid
+import time
 from app import database2
+
+
 class Forum:
 
 
@@ -10,7 +14,8 @@ class Forum:
             "_id": uuid.uuid4().hex,
             "forumName": request.form.get('forumName'),
             "forumTitle": request.form.get('forumTitle'),
-            "forumPost": request.form.get('forumPost')
+            "forumPost": request.form.get('forumPost'),
+            "forumTime": datetime.now()
 
         }
 

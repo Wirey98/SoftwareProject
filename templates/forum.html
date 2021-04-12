@@ -31,7 +31,7 @@
 
         <p class="error error--hidden"></p>
 
-        <input type="submit" value="Submit" style ="background-color:red" class='btn'>
+        <input onClick="window.location.reload();" type="submit" value="Submit" style ="background-color:red" class='btn'>
 
         
 
@@ -50,19 +50,21 @@
         
 {% for doc in collectiontest.find().sort("forumTime",-1): %}
 
-    <div class="card-wrapper">
+    
     <div class="card">
         <ul style="list-style-type:none">
-        <li>ID: {{ doc._id }}</li>
-        <li>Name: {{ doc.forumName }}</li>
-        <li>Title: {{ doc.forumTitle }}</li>
-        <li>Post: {{ doc.forumPost }}</li>
-        </ul>
         
+        <li><strong>Name:</strong> {{ doc.forumName }}</li>
+        <li><strong>Title:</strong> {{ doc.forumTitle }}</li>
+        <li><strong>Post:</strong> {{ doc.forumPost }}</li>
+        </br>
+        
+        </ul>
+        <strong>ID:</strong> {{ doc._id }}
         
         
     </div>
-</div>
+
 
     
 

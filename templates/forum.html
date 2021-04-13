@@ -11,8 +11,7 @@
 
     <form name="forum_form">
 
-        <label for="forumName">Name</label>
-        <input type="text" name="forumName" class="field" required>
+        
 
         <label for="forumTitle">Title</label>
         <input type="text" name="forumTitle" class="field" maxlength="300" required>
@@ -50,8 +49,10 @@
         
 {% for doc in collectiontest.find().sort("forumTime",-1): %}
 
-    
+    <div class="card-wrapper">
     <div class="card">
+
+    
         <ul style="list-style-type:none">
         
         <li><strong>Name:</strong> {{ doc.forumName }}</li>
@@ -60,11 +61,11 @@
         </br>
         
         </ul>
-        <strong>ID:</strong> {{ doc._id }}
+        <strong><i>Post ID:</i></strong> {{ doc._id }}
         
         
     </div>
-
+</div>
 
     
 

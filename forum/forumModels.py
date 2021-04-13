@@ -3,6 +3,7 @@ from datetime import datetime
 import uuid
 import time
 from app import database2
+from app import database1
 
 
 class Forum:
@@ -12,7 +13,7 @@ class Forum:
         #creation of the forum post object
         forum = {
             "_id": uuid.uuid4().hex,
-            "forumName": request.form.get('forumName'),
+            "forumName": session['user']['name'],
             "forumTitle": request.form.get('forumTitle'),
             "forumPost": request.form.get('forumPost'),
             "forumTime": datetime.now()

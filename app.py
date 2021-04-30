@@ -4,6 +4,7 @@ import pymongo
 import folium
 import requests
 import json
+import logging
 from pymongo import MongoClient
 from pprint import pprint
 
@@ -82,12 +83,12 @@ def homescreen():
     return render_template("homescreen.html")
 
 @app.route("/APIsearch")
-
+@login_manditory
 def shoesearch():
     return render_template("shoesearch.html")
 
 @app.route("/forumResult")
-
+@login_manditory
 def forumResult():
     return render_template('forumResult.html', collectiontest=collection2)
     
@@ -95,27 +96,37 @@ def forumResult():
       #  return render_template("forumResult.html",x)
 
         
+@app.route("/newapi", methods=["GET","POST"])
+
+def newapi():
+
+    
+    url = 'https://v1-sneakers.p.rapidapi.com/v1/sneakers'
+
+    
+    brandname1 = request.form.get('brand')
+    gendertype1 = request.form.get('gender')
+    
+    #str(brandname1)
+    #str(gendertype1)
     
 
-   
-
-@app.route("/apiresult", methods=["POST"])
-@login_manditory
-def apiresult():
-    #getting the form value
-    brandname = request.form['brand']
-    gendertype = request.form['gender']
-    r = requests.get('https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand='+brandname+'&gender='+gendertype)
-    #json_object = json.loads(r['results'])
-    json_object = r.json()
-
-
-    #for key in json_object:
-        #print (key, ":", json_object[key])
-        
-        
-        # json_object['results'][i]['shoe']
+    querystring = {"limit":"100", "brand":brandname1, "gender":gendertype1}
     
+    headers = {
+    'x-rapidapi-key': "8b43fcfb00mshdc3d24bd007747ap16b617jsn324bb8a411e2",
+    'x-rapidapi-host': "v1-sneakers.p.rapidapi.com"
+    }
+    
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    
+
+    json_object = response.json()
+    
+
+    
+    
+
     #sneaker 1 
     name_result = json_object['results'][0]['name']
     shoe_result = json_object['results'][0]['media']['imageUrl']
@@ -350,16 +361,11 @@ def apiresult():
     color_result39 = json_object['results'][38]['colorway']
     releaseDate_result39 = json_object['results'][38]['releaseDate']
 
-    #sneaker 40
-    name_result40 = json_object['results'][39]['name']
-    shoe_result40 = json_object['results'][39]['media']['imageUrl']
-    color_result40 = json_object['results'][39]['colorway']
-    releaseDate_result40 = json_object['results'][39]['releaseDate']
 
     
 
     #return shoe_result
-    return render_template('apiresult.html', 
+    return render_template('newapi.html', 
     imageUrl=shoe_result, name=name_result, color=color_result, releaseDate=releaseDate_result,
     imageUrl2=shoe_result2, name2=name_result2,color2=color_result2,releaseDate2=releaseDate_result2,
     imageUrl3=shoe_result3, name3=name_result3,color3=color_result3,releaseDate3=releaseDate_result3,
@@ -398,8 +404,7 @@ def apiresult():
     imageUrl36=shoe_result36, name36=name_result36, color36=color_result36, releaseDate36=releaseDate_result36,
     imageUrl37=shoe_result37, name37=name_result37, color37=color_result37, releaseDate37=releaseDate_result37,
     imageUrl38=shoe_result38, name38=name_result38, color38=color_result38, releaseDate38=releaseDate_result38,
-    imageUrl39=shoe_result39, name39=name_result39, color39=color_result39, releaseDate39=releaseDate_result39,
-    imageUrl40=shoe_result40, name40=name_result40, color40=color_result40, releaseDate40=releaseDate_result40)
+    imageUrl39=shoe_result39, name39=name_result39, color39=color_result39, releaseDate39=releaseDate_result39)
 
 
    

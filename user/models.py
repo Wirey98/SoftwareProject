@@ -1,3 +1,10 @@
+#ClassName: models.py
+#  Date: 04/05/2021
+#@author Sam Greenan, x17449342
+#
+#@reference 
+# https://www.youtube.com/channel/UC6Oowe4rpbQXo6AmRHmDMYg - Login Functionality User Class creation
+
 from flask import Flask, jsonify, request, session, redirect
 from passlib.hash import pbkdf2_sha256
 from app import database1

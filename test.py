@@ -1,4 +1,10 @@
-# 29.03.2021 https://www.youtube.com/watch?v=1aHNs1aEATg
+#ClassName: test.py
+#  Date: 04/05/2021
+#@author Sam Greenan, x17449342
+#
+#@reference 
+#  https://www.youtube.com/watch?v=1aHNs1aEATg - unit testing accessed: 29.03.2021 
+
 from app import app
 import unittest
 

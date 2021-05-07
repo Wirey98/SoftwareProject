@@ -1,3 +1,11 @@
+#ClassName: models.py
+#  Date: 04/05/2021
+#@author Sam Greenan, x17449342
+#
+#@reference 
+# https://www.youtube.com/watch?v=w1STSSumoVk - Login routes
+
+
 from flask import Flask
 
 #from the app file, import the instance of Flask

@@ -1,5 +1,28 @@
+<!-- ClassName: forum.html
+  Date: 04/05/2021
+@author Sam Greenan, x17449342
+
+@reference 
+https://www.w3schools.com/w3css/4/w3.css - Stylesheet
+-->
+
+
+
 {% extends "base.html"%}
 {% block content %}
+
+
+
+<style>
+
+.body{
+
+background-image: url("https://ipfs.io/ipfs/QmQEVVLJUR1WLN15S49rzDJsSP7za9DxeqpUzWuG4aondg");
+
+}
+    
+</style>
+
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -19,7 +42,8 @@
         <label for="forumPost">Post</label>
         <textarea rows="4" cols="40" name="forumPost"  required></textarea>
 
-
+        <label for="forumImage">Include an Image  (Image Address Only)</label>
+        <input type="text" name="forumImage" placeholder="*Not Required" class="field" >
         
         
 
@@ -49,8 +73,8 @@
         
 {% for doc in collectiontest.find().sort("forumTime",-1): %}
 
-    <div class="card-wrapper">
-    <div class="card">
+    <div class="forumcard-wrapper">
+    <div class="forumcard">
 
     
         <ul style="list-style-type:none">
@@ -59,12 +83,13 @@
         <li><strong>Title:</strong> {{ doc.forumTitle }}</li>
         <li><strong>Post:</strong> {{ doc.forumPost }}</li>
         </br>
+        <p class="center"><img src="{{doc.forumImage}}" onerror="this.style.display='none'" alt="" height="150" width="200"></p>
         
-        </ul>
-        <strong><i>Post ID:</i></strong> {{ doc._id }}
-        
-        <strong><i>Time Posted:</i></strong> {{ doc.forumTime }}
-        
+        </ul>   
+       
+
+
+       <p class="center"> <strong><i>Time Posted:</i></strong> {{ doc.forumTime }} </p>
     </div>
 </div>
 

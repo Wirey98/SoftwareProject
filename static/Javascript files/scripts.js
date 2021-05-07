@@ -1,3 +1,8 @@
+//ClassName: scripts.js
+//Date: 04/05/2021
+//@author Sam Greenan, x17449342
+
+//@reference 
 //https://www.youtube.com/watch?v=mISFEwojJmE - adding functionality to a form using AJAX
 
 // signup functionality

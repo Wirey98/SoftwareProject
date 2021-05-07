@@ -1,10 +1,22 @@
-from flask import Flask, render_template, session, redirect, request
+#ClassName: app.py
+#  Date: 04/05/2021
+#@author Sam Greenan, x17449342
+#
+#@reference 
+# https://www.youtube.com/watch?v=w1STSSumoVk - Login Functionality
+# https://python-visualization.github.io/folium/ - Folium Map API documentation
+# https://www.youtube.com/watch?v=1iFE_5wD2Q0 - PayPal Integration
+# https://rapidapi.com/tg4-solutions-tg4-solutions-default/api/v1-sneakers/pricing - TG4 Solutions Sneaker database API key
+# https://flask.palletsprojects.com/en/1.1.x/ - Flask documentation
+
+from flask import Flask, render_template, session, redirect, request, jsonify
 from functools import wraps
 import pymongo
 import folium
 import requests
 import json
 import logging
+import paypalrestsdk
 from pymongo import MongoClient
 from pprint import pprint
 
@@ -107,11 +119,10 @@ def newapi():
     brandname1 = request.form.get('brand')
     gendertype1 = request.form.get('gender')
     
-    #str(brandname1)
-    #str(gendertype1)
+    
     
 
-    querystring = {"limit":"100", "brand":brandname1, "gender":gendertype1}
+    querystring = {"limit":"100", "brand":brandname1, "gender":gendertype1,}
     
     headers = {
     'x-rapidapi-key': "8b43fcfb00mshdc3d24bd007747ap16b617jsn324bb8a411e2",
@@ -132,6 +143,7 @@ def newapi():
     shoe_result = json_object['results'][0]['media']['imageUrl']
     color_result = json_object['results'][0]['colorway']
     releaseDate_result = json_object['results'][0]['releaseDate']
+    
     
     #sneaker 2
     name_result2 = json_object['results'][1]['name']
@@ -406,7 +418,7 @@ def newapi():
     imageUrl38=shoe_result38, name38=name_result38, color38=color_result38, releaseDate38=releaseDate_result38,
     imageUrl39=shoe_result39, name39=name_result39, color39=color_result39, releaseDate39=releaseDate_result39)
 
-
+    
    
 
     
@@ -424,6 +436,60 @@ def map():
     radius=200).add_to(map)
 
     return map._repr_html_()
+
+
+import paypalrestsdk
+paypalrestsdk.configure({
+  "mode": "sandbox", # sandbox or live
+  "client_id": "ARli33FAGZdOi6d1LcT3BID4BDyHLYCSJ68OBqQXKxb_9ozyPcaQdOXV7u_MB2QwpsoRwmwQuWE1tYZc",
+  "client_secret": "ENYKf54NVyxnSAGjNl71TieaYYincS_PIXN7GAKXqQh8OowOO3UHv6VO86xClt5c0W1UGr1-aUGbQYOn" })
+
+
+@app.route('/payment', methods=['POST'])
+def payment():
+
+    payment = paypalrestsdk.Payment({
+        "intent": "sale",
+        "payer": {
+            "payment_method": "paypal"},
+        "redirect_urls": {
+            "return_url": "http://localhost:3000/payment/execute",
+            "cancel_url": "http://localhost:3000/"},
+        "transactions": [{
+            "item_list": {
+                "items": [{
+                    "name": "testdonation",
+                    "sku": "item",
+                    "price": "5.00",
+                    "currency": "EUR",
+                    "quantity": 1}]},
+            "amount": {
+                "total": "5.00",
+                "currency": "EUR"},
+            "description": "This is a 5 Euro PayPal donation to Sole Seeker."}]})
+
+    if payment.create():
+        print('successfull payment!')
+    else:
+        print(payment.error)
+
+    return jsonify({'paymentID': payment.id})
+
+
+@app.route('/execute', methods=['POST'])
+def execute():
+    success = False
+    payment = paypalrestsdk.Payment.find(request.form['paymentID'])
+
+    if payment.execute({'payer_id' : request.form['payerID']}):
+        print('Execute sucess!')
+        success = True
+    else:
+        print(payment.error)
+    
+
+
+    return jsonify({'success' : success})
 
 
 if __name__ == "__main__":

@@ -33,7 +33,10 @@ body {
   font-size: 18px;
   line-height: 28px;
   color: var(--black);
-  background: var(--background-test);
+  background-image: url("https://ipfs.io/ipfs/QmQEVVLJUR1WLN15S49rzDJsSP7za9DxeqpUzWuG4aondg");
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
 }
 
 /* Typography */
@@ -82,6 +85,32 @@ p {
   box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);
   border-radius: 5px;
   background: var(--white);
+}
+
+.forumcard-wrapper {
+  margin: 0 auto;
+  padding: 90px 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  display: flex;
+
+}
+
+.forumcard {
+  padding: 80px 40px;
+  width: 960px;
+  box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);
+  border-radius: 600px;
+  background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+}
+.forumcards {
+  margin: 0 30px 60px;
+  padding: 20px 40px;
+  width: 460px;
+  box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);
+  border-radius: 5px;
+  background: var(--background-test);
+
 }
 
 .navbackground {
@@ -225,4 +254,12 @@ label {
 input[type=submit] {
   margin: 34px auto 24px;
   display: block;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: #00ff00;
+  border-radius: 50%;
+  display: inline-block;
 }

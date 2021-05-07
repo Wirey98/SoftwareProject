@@ -16,8 +16,8 @@ class Forum:
             "forumName": session['user']['name'],
             "forumTitle": request.form.get('forumTitle'),
             "forumPost": request.form.get('forumPost'),
-            "forumTime": datetime.now()
-
+            "forumTime": datetime.now(),
+            "forumImage": request.form.get('forumImage')
         }
 
         if database2.forums.insert_one(forum):

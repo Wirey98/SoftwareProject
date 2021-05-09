@@ -3,7 +3,7 @@
 #@author Sam Greenan, x17449342
 #
 #@reference 
-# https://www.youtube.com/watch?v=w1STSSumoVk - Login Functionality
+# https://www.youtube.com/channel/UC6Oowe4rpbQXo6AmRHmDMYg - Login Functionality
 # https://python-visualization.github.io/folium/ - Folium Map API documentation
 # https://www.youtube.com/watch?v=1iFE_5wD2Q0 - PayPal Integration
 # https://rapidapi.com/tg4-solutions-tg4-solutions-default/api/v1-sneakers/pricing - TG4 Solutions Sneaker database API key
@@ -453,8 +453,8 @@ def payment():
         "payer": {
             "payment_method": "paypal"},
         "redirect_urls": {
-            "return_url": "http://localhost:3000/payment/execute",
-            "cancel_url": "http://localhost:3000/"},
+            "return_url": "https://soleseeker.herokuapp.com/payment/execute",
+            "cancel_url": "https://soleseeker.herokuapp.com/"},
         "transactions": [{
             "item_list": {
                 "items": [{

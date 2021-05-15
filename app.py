@@ -26,7 +26,7 @@ app = Flask(__name__)
 app.secret_key = 'hajhaauopqsbyuajc'
 
 #connecting to the database
-cluster = MongoClient('mongodb+srv://root:Shaytards123@cluster0.szmco.mongodb.net/Software_Project?retryWrites=true&w=majority')
+cluster = MongoClient('mongodb+srv://root:########@cluster0.szmco.mongodb.net/Software_Project?retryWrites=true&w=majority')
 
 
 database1 = cluster["Software_Project"]

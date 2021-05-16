@@ -34,9 +34,7 @@ class FlaskTestCase(unittest.TestCase):
         )
         self.assertIn(b'Logged In', response.data)
 
-    # Testing the login with incorrect credentials
-
-    # Testing logout
+    
 
 if __name__ == '__main__':
     unittest.main()
